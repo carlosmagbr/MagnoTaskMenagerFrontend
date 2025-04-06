@@ -1,7 +1,7 @@
 const TaskItem = ({task}) =>{
     return(
         <>
-            <h1>{task.descripition}</h1>
+            <h1>{task.description}</h1>
             <p>{task.isCompleted ? "Completa" : "Não completa"}</p>
         </>
     )
