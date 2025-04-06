@@ -1,5 +1,8 @@
+
 import { useState, useEffect } from "react"
 import axios from "axios"
+
+import './index.scss'
 
 import TaskItem from "./components/TaskItem"
 // import './App.css';
