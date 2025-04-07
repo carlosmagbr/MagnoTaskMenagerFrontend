@@ -7,3 +7,5 @@ const CustomButton = ({onClick,children}) =>{
         </div>
     )
 }
+
+export default CustomButton
