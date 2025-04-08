@@ -4,10 +4,11 @@ import axios from "axios";
 import "./TaskItem.scss";
 import { toast } from "react-toastify";
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, fetchTasks }) => {
     const  handleTaskDeletion = async () => {
         try {
             await axios.delete(`http://localhost:8000/tasks/${task._id}`)           
+            await fetchTasks()
             toast.success(`A tarefa ${task.description} foi deletada`)
         } catch (error) {
             toast.error('Falha ao excluir a tarefa')

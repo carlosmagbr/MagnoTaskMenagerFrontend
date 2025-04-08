@@ -18,7 +18,7 @@ const Tasks = () => {
             isCompleted: true,
         },
     ]);
-    const fetchTask = async () => {
+    const fetchTasks = async () => {
         try {
             const { data } = await axios.get("http://localhost:8000/tasks");
             setTasks(data);
@@ -28,7 +28,7 @@ const Tasks = () => {
     };
 
     useEffect(() => {
-        fetchTask();
+        fetchTasks();
     }, []);
 
     return (
@@ -36,12 +36,12 @@ const Tasks = () => {
             <h2>Minhas Tarefas</h2>
             <div className="last-tasks">
                 <h3>Últimas tarefas</h3>
-                <AddTask fetchTasks={fetchTask}/>
+                <AddTask fetchTasks={fetchTasks}/>
                 <div className="tasks-list">
                     {tasks
                         .filter((tasks) => tasks.isCompleted === false)
                         .map((lastTask) => (
-                            <TaskItem task={lastTask}/>
+                            <TaskItem task={lastTask} fetchTasks={fetchTasks}/>
                         ))}
                 </div>
             </div>
@@ -51,7 +51,7 @@ const Tasks = () => {
                     {tasks
                         .filter((tasks) => tasks.isCompleted)
                         .map((completedTask) => (
-                            <TaskItem task={completedTask}/>
+                            <TaskItem task={completedTask} fetchTasks={fetchTasks}/>
                         ))}
                 </div>
             </div>
