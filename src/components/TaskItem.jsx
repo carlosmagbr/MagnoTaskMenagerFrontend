@@ -17,13 +17,13 @@ const TaskItem = ({ task, fetchTasks }) => {
 
     const handleTaskCompletionChange = async (e) => {
         try {
-            await axios.patch(`http://localhost:8000/tasks/${task._id}`,{
+            await axios.patch(`http://localhost:8000/tasks/${task._id}`, {
                 isCompleted: e.target.checked,
             });
             await fetchTasks();
             toast.success(`A tarefa ${task.description} foi atualizada`);
         } catch (_error) {
-            toast.error('Falha ao atualizar a tarefa')
+            toast.error("Falha ao atualizar a tarefa");
         }
     };
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 // import axios from "axios";
 import { toast } from "react-toastify";
