@@ -24,7 +24,7 @@ const Tasks = () => {
             const { data } = await axios.get("http://localhost:8000/tasks");
             setTasks(data);
         } catch (_error) {
-            toast.error('Erro ao listar as tarefas')
+            toast.error("Erro ao listar as tarefas");
         }
     };
 
@@ -37,12 +37,16 @@ const Tasks = () => {
             <h2>Minhas Tarefas</h2>
             <div className="last-tasks">
                 <h3>Últimas tarefas</h3>
-                <AddTask fetchTasks={fetchTasks}/>
+                <AddTask fetchTasks={fetchTasks} />
                 <div className="tasks-list">
                     {tasks
                         .filter((tasks) => tasks.isCompleted === false)
                         .map((lastTask) => (
-                            <TaskItem task={lastTask} fetchTasks={fetchTasks}/>
+                            <TaskItem
+                                key={lastTask._id}
+                                task={lastTask}
+                                fetchTasks={fetchTasks}
+                            />
                         ))}
                 </div>
             </div>
@@ -52,7 +56,11 @@ const Tasks = () => {
                     {tasks
                         .filter((tasks) => tasks.isCompleted)
                         .map((completedTask) => (
-                            <TaskItem task={completedTask} fetchTasks={fetchTasks}/>
+                            <TaskItem
+                                key={completedTask._id}
+                                task={completedTask}
+                                fetchTasks={fetchTasks}
+                            />
                         ))}
                 </div>
             </div>
