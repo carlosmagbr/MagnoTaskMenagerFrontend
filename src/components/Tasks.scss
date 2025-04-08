@@ -8,6 +8,15 @@
     overflow-y: hidden;
     flex: auto;
 
+    @media (max-width: 1024px) {
+        max-width: 60%;
+    }
+
+    @media (max-width: 768px) {
+        padding: 30px;
+        max-width: 100%;
+    }
+
     h2 {
         margin-bottom: 24px;
     }
@@ -33,19 +42,19 @@
 
         /* Track */
         ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 5px;
+            border-radius:5px;
+            background: #000;
         }
-        
+
         /* Handle */
         ::-webkit-scrollbar-thumb {
+            border-radius:5px;
             background: linear-gradient(
                 262.71deg,
                 #00d1ff -30.04%,
                 #00ffa3 124.74%
-                );
-                border-radius: 5px;
-            }
+            );
+        }
 
         /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
