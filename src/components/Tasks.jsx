@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import "./Tasks.scss";
 import TaskItem from "./TaskItem";
 import AddTask from "./AddTask";
+import { toast } from "react-toastify";
 
 const Tasks = () => {
     const [tasks, setTasks] = useState([
@@ -22,8 +23,8 @@ const Tasks = () => {
         try {
             const { data } = await axios.get("http://localhost:8000/tasks");
             setTasks(data);
-        } catch (error) {
-            console.log(error);
+        } catch (_error) {
+            toast.error('Erro ao listar as tarefas')
         }
     };
 

@@ -32,7 +32,7 @@ const AddTask = ({fetchTasks}) => {
 
             setTask("");
 
-        } catch (error) {
+        } catch (_error) {
             toast.error("Algo deu errado")
         }
     };
