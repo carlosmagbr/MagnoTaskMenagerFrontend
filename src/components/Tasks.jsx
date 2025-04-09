@@ -1,5 +1,5 @@
+import { useEffect, useState, useMemo, useCallback } from "react";
 import axios from "axios";
-import { useEffect, useState, useMemo } from "react";
 
 import "./Tasks.scss";
 import TaskItem from "./TaskItem";
@@ -7,26 +7,16 @@ import AddTask from "./AddTask";
 import { toast } from "react-toastify";
 
 const Tasks = () => {
-    const [tasks, setTasks] = useState([
-        {
-            id: "1",
-            description: "Estudar programação",
-            isCompleted: false,
-        },
-        {
-            id: "2",
-            description: "Ler",
-            isCompleted: true,
-        },
-    ]);
-    const fetchTasks = async () => {
+    const [tasks, setTasks] = useState([]);
+
+    const fetchTasks = useCallback(async () => {
         try {
             const { data } = await axios.get("http://localhost:8000/tasks");
             setTasks(data);
         } catch (_error) {
             toast.error("Erro ao listar as tarefas");
         }
-    };
+    },[]);
 
     const lastTasks = useMemo(() => {
         return tasks.filter((task) => task.isCompleted === false);
@@ -38,7 +28,7 @@ const Tasks = () => {
 
     useEffect(() => {
         fetchTasks();
-    }, []);
+    }, [fetchTasks]);
 
     return (
         <div className="tasks-container">
