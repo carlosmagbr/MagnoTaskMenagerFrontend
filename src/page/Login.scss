@@ -6,7 +6,12 @@
     align-items: center;
 
     .title {
+        max-width: 400px;
         width: 100%;
+        h1 {
+            text-align: center;
+            font-size: 48px;
+        }
         p {
             padding-top: 5px;
             background-image: linear-gradient(
@@ -18,11 +23,18 @@
             background-clip: text;
             color: transparent;
             text-align: right;
+            font-size: 24px;
         }
     }
 
     .button-container {
-        width: 405.7y6px;
+        margin-top: 1rem;
+        max-width: 400px;
+        width: 100%;
         color: #000;
+    }
+
+    .button-container:hover{
+        color: #fff;
     }
 }
